@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>房屋信息</title>
+</head>
+<body>
+<h3>用户{{user_name}}的房源信息</h3>
+{%for house in house_list%}
+	<h4>房源{{forloop.counter}}</h4>
+	    <hr>
+		    <ol>
+		        <li> 房屋ID: {{house.hi_house_id}}</li>
+		        <li> 房屋名称: {{house.hi_title}}</li>
+		        <li> 房屋价格: {{house.hi_price}}</li>
+		        <li> 房屋地址: {{house.hi_address}}</li>
+		        <li> 房间数: {{house.hi_room_count}}</li>
+		        <li> 房屋面积: {{house.hi_acreage}}</li>
+		        <li> 房屋户型: {{house.hi_house_unit}}</li>
+		        <li> 容纳人数: {{house.hi_capacity}}</li>
+		        <li> 床的尺寸: {{house.hi_beds}}</li>
+		        <li> 房屋押金: {{house.hi_deposit}}</li>
+		        <li> 入住最短时间: {{house.hi_min_days}}</li>
+		        <li> 入住最长时间: {{house.hi_max_days}}</li>
+		        <li> 下单数量: {{house.hi_order_count}}</li>
+		        	{% if house.hi_verify_status == 0 %}
+		        		<li> 房屋审核状态: 待审核</li>
+		        	{% elif house.hi_verify_status == 1 %}
+		        		<li> 房屋审核状态: 审核未通过</li>
+		        	{% else %}
+		        		<li> 房屋审核状态: 审核已通过</li>
+		        	{% endif %}
+
+		        	{% if house.hi_online_status == 0 %}
+		        		<li> 房屋在线状态: 下线</li>
+		        	{% else %}
+		        		<li> 房屋在线状态: 上线</li>
+		        	{% endif %}
+		        <li> 房屋主图地址: {{house.hi_index_image_url}}</li>
+		    </ol>
+{%endfor%}
+</body>
+</html>
