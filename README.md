@@ -1,2 +1,2 @@
 # django-study
-some excuse programs for django study
+some excuses programs for django study
