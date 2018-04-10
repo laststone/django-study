@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户详情页</title>
+</head>
+<body>
+<h3>用户{{user.up_name}}的详细信息</h3>
+<ol>
+    <li>昵称: {{user.}}</li>
+    <li>用户ID: {{user.up_user_id}}</li>
+    <li>手机号: {{user.up_mobile}}</li>
+    {% if user.up_admin == 0 %}
+        <li> 用户身份: 普通用户</li>
+    {% else %}
+        <li> 房屋在线状态: 管理员</li>
+    {% endif %}
+    <li>真实姓名: {{user.up_real_name}}</li>
+    <li>身份证号: {{user.up_id_card}}</li>
+</ol>
+<ul>
+    <li><a href="house{{user.up_user_id}}">点击查看该用户的房源</li>
+    <li><a href="order{{user.up_user_id}}">点击查看该用户的订单</li>
+</ul>
+</ol>
+</body>
+</html>

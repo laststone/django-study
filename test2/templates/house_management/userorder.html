@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单信息</title>
+</head>
+<body>
+<h3>用户{{user_name}}的订单信息</h3>
+{%for order in order_list%}
+    <h4>订单{{forloop.counter}}</h4>
+        <hr>
+            <ol>
+                <li> 订单ID: {{order.oi_order_id}}</li>
+                <li> 入住房屋ID : {{order.oi_utime}}</li>
+                <li> 入住时间: {{order.oi_begin_date}}</li>
+                <li> 离开时间: {{order.oi_end_date}}</li>
+                <li> 入住天数: {{order.oi_days}}</li>
+                <li> 房屋单价: {{order.oi_house_price}}/100元</li>
+                <li> 订单金额: {{order.oi_amount}}/100元</li>
+                {% if order.oi_status == 0 %}
+                    <li> 订单状态: 待接单</li>
+                {% elif order.oi_status == 1 %}
+                    <li> 订单状态: 待支付</li>
+                {% elif order.oi_status == 2 %}
+                    <li> 订单状态: 已支付</li>
+                {% elif order.oi_status == 3 %}
+                    <li> 订单状态: 待评价</li>
+                {% elif order.oi_status == 4 %}
+                    <li> 订单状态: 已完成</li>
+                {% elif order.oi_status == 5 %}
+                    <li> 订单状态: 已取消</li>
+                {% else %}
+                    <li> 订单状态: 已拒单</li>
+                {% endif %}
+                <li>订单评论 : {{order.oi_comment}}</li>
+            </ol>
+{%endfor%}
+</body>
+</html>
