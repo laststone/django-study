@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板渲染</title>
+</head>
+<body>
+  <h1>hello www world</h1>
+
+  <ul>
+      {%for book in book_list%}
+      <li><a href="{{book.id}}">{{book.btitle}}</a></li>
+      {%endfor%}
+  </ul>
+</body>
+</html>
